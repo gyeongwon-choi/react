@@ -19,8 +19,9 @@ import Gsap12 from "@/pages/Gsap/Gsap12";
 import Gsap13 from "@/pages/Gsap/Gsap13";
 import Gsap14 from "@/pages/Gsap/Gsap14";
 import Gsap15 from "@/pages/Gsap/Gsap15"; */
+import StaggeredPhysics from "@/pages/Demo/StaggeredPhysics";
 
-const gsapRoutes = [
+const scrollTriggerRoutes = [
   { path: "gsap1", element: <Gsap1 /> },
   { path: "gsap2", element: <Gsap2 /> },
   { path: "gsap3", element: <Gsap3 /> },
@@ -38,6 +39,10 @@ const gsapRoutes = [
   { path: "gsap15", element: <Gsap15 /> }, */
 ];
 
+const demoRoutes = [
+  { path: "staggeredPhysics", element: <StaggeredPhysics /> },
+];
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,8 +52,12 @@ const router = createBrowserRouter([
       { path: "todos", element: <Todos /> },
       { path: "counter", element: <Counter /> },
       { path: "game", element: <Game /> },
-      ...gsapRoutes.map((route) => ({
+      ...scrollTriggerRoutes.map((route) => ({
         path: `gsap/${route.path}`,
+        element: route.element,
+      })),
+      ...demoRoutes.map((route) => ({
+        path: `demo/${route.path}`,
         element: route.element,
       })),
     ],
